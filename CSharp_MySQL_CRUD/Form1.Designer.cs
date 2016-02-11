@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnConnect = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxGender = new System.Windows.Forms.ComboBox();
             this.txtBoxCourse = new System.Windows.Forms.TextBox();
@@ -46,21 +45,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblRecords = new System.Windows.Forms.Label();
+            this.lblDBStatus = new System.Windows.Forms.Label();
+            this.lblDBStatusValue = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnConnect
-            // 
-            this.btnConnect.Location = new System.Drawing.Point(12, 12);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(129, 26);
-            this.btnConnect.TabIndex = 0;
-            this.btnConnect.Text = "Connect to MySQL";
-            this.btnConnect.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnLoad);
+            this.groupBox1.Controls.Add(this.btnDelete);
+            this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.comboBoxGender);
             this.groupBox1.Controls.Add(this.txtBoxCourse);
             this.groupBox1.Controls.Add(this.label6);
@@ -77,7 +79,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 44);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(453, 242);
+            this.groupBox1.Size = new System.Drawing.Size(598, 242);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insert Record into Database";
@@ -91,14 +93,14 @@
             "Female"});
             this.comboBoxGender.Location = new System.Drawing.Point(94, 133);
             this.comboBoxGender.Name = "comboBoxGender";
-            this.comboBoxGender.Size = new System.Drawing.Size(329, 21);
+            this.comboBoxGender.Size = new System.Drawing.Size(399, 21);
             this.comboBoxGender.TabIndex = 7;
             // 
             // txtBoxCourse
             // 
             this.txtBoxCourse.Location = new System.Drawing.Point(94, 160);
             this.txtBoxCourse.Name = "txtBoxCourse";
-            this.txtBoxCourse.Size = new System.Drawing.Size(329, 20);
+            this.txtBoxCourse.Size = new System.Drawing.Size(399, 20);
             this.txtBoxCourse.TabIndex = 8;
             // 
             // label6
@@ -114,7 +116,7 @@
             // 
             this.txtBoxMobile.Location = new System.Drawing.Point(94, 81);
             this.txtBoxMobile.Name = "txtBoxMobile";
-            this.txtBoxMobile.Size = new System.Drawing.Size(329, 20);
+            this.txtBoxMobile.Size = new System.Drawing.Size(399, 20);
             this.txtBoxMobile.TabIndex = 5;
             // 
             // label5
@@ -138,7 +140,7 @@
             // btnSave
             // 
             this.btnSave.AutoSize = true;
-            this.btnSave.Location = new System.Drawing.Point(267, 209);
+            this.btnSave.Location = new System.Drawing.Point(94, 213);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 9;
@@ -148,7 +150,7 @@
             // btnReset
             // 
             this.btnReset.AutoSize = true;
-            this.btnReset.Location = new System.Drawing.Point(348, 209);
+            this.btnReset.Location = new System.Drawing.Point(175, 213);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 10;
@@ -159,21 +161,21 @@
             // 
             this.txtBoxEmail.Location = new System.Drawing.Point(94, 107);
             this.txtBoxEmail.Name = "txtBoxEmail";
-            this.txtBoxEmail.Size = new System.Drawing.Size(329, 20);
+            this.txtBoxEmail.Size = new System.Drawing.Size(399, 20);
             this.txtBoxEmail.TabIndex = 6;
             // 
             // txtBoxLName
             // 
             this.txtBoxLName.Location = new System.Drawing.Point(94, 55);
             this.txtBoxLName.Name = "txtBoxLName";
-            this.txtBoxLName.Size = new System.Drawing.Size(329, 20);
+            this.txtBoxLName.Size = new System.Drawing.Size(399, 20);
             this.txtBoxLName.TabIndex = 4;
             // 
             // txtBoxFName
             // 
             this.txtBoxFName.Location = new System.Drawing.Point(94, 29);
             this.txtBoxFName.Name = "txtBoxFName";
-            this.txtBoxFName.Size = new System.Drawing.Size(329, 20);
+            this.txtBoxFName.Size = new System.Drawing.Size(399, 20);
             this.txtBoxFName.TabIndex = 3;
             // 
             // label3
@@ -203,26 +205,99 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "First Name:";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(616, 44);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Total Students:";
+            // 
+            // lblRecords
+            // 
+            this.lblRecords.AutoSize = true;
+            this.lblRecords.Location = new System.Drawing.Point(701, 44);
+            this.lblRecords.Name = "lblRecords";
+            this.lblRecords.Size = new System.Drawing.Size(0, 13);
+            this.lblRecords.TabIndex = 3;
+            // 
+            // lblDBStatus
+            // 
+            this.lblDBStatus.AutoSize = true;
+            this.lblDBStatus.Location = new System.Drawing.Point(12, 9);
+            this.lblDBStatus.Name = "lblDBStatus";
+            this.lblDBStatus.Size = new System.Drawing.Size(89, 13);
+            this.lblDBStatus.TabIndex = 4;
+            this.lblDBStatus.Text = "Database Status:";
+            // 
+            // lblDBStatusValue
+            // 
+            this.lblDBStatusValue.AutoSize = true;
+            this.lblDBStatusValue.Location = new System.Drawing.Point(107, 9);
+            this.lblDBStatusValue.Name = "lblDBStatusValue";
+            this.lblDBStatusValue.Size = new System.Drawing.Size(0, 13);
+            this.lblDBStatusValue.TabIndex = 5;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 292);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(823, 404);
+            this.dataGridView1.TabIndex = 6;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(256, 213);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 11;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(337, 213);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 12;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(418, 213);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(75, 23);
+            this.btnLoad.TabIndex = 13;
+            this.btnLoad.Text = "Load";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 298);
+            this.ClientSize = new System.Drawing.Size(847, 708);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.lblDBStatusValue);
+            this.Controls.Add(this.lblDBStatus);
+            this.Controls.Add(this.lblRecords);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnConnect);
             this.Name = "Form1";
             this.Text = "MySQL Insert";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBoxEmail;
@@ -239,6 +314,14 @@
         private System.Windows.Forms.TextBox txtBoxCourse;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.ComboBox comboBoxGender;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblRecords;
+        private System.Windows.Forms.Label lblDBStatus;
+        private System.Windows.Forms.Label lblDBStatusValue;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }
 
