@@ -20,6 +20,34 @@ namespace CSharp_MySQL_CRUD
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            DBConnectionStatus();
+            GetTotalStudents();
+            
+        }
+
+        private void LoadData()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionManager.connectionString))
+            {
+                try
+                {
+                    MySqlDataAdapter _adapter = new MySqlDataAdapter("SELECT * FROM student", conn);
+                    DataSet _dataset = new DataSet();
+                    _adapter.Fill(_dataset, "table");
+                    dataGridViewStudent.DataSource = _dataset;
+                    dataGridViewStudent.DataMember = "table";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Connection Error!\n" + ex.Message, "Error Message",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void DBConnectionStatus()
+        {
             using (MySqlConnection conn = new MySqlConnection(connectionManager.connectionString))
             {
                 try
@@ -36,6 +64,11 @@ namespace CSharp_MySQL_CRUD
                     lblDBStatusValue.Text = "Connection Error!\n" + ex.Message;
                 }
             }
+
+        }
+
+        private void GetTotalStudents()
+        {
             using (MySqlConnection conn = new MySqlConnection(connectionManager.connectionString))
             {
                 try
@@ -49,21 +82,10 @@ namespace CSharp_MySQL_CRUD
                 }
                 catch (Exception ex)
                 {
-                    lblRecords.Text = "Connection Error!";
+                    lblRecords.Text = "Error!";
                 }
             }
-        }
 
-        private void LoadData()
-        {
-            using (MySqlConnection conn = new MySqlConnection(connectionManager.connectionString))
-            {
-                MySqlDataAdapter _adapter = new MySqlDataAdapter("SELECT * FROM student", conn);
-                DataSet _dataset = new DataSet();
-                _adapter.Fill(_dataset, "table");
-                dataGridViewStudent.DataSource = _dataset;
-                dataGridViewStudent.DataMember = "table";
-            }
         }
 
         private void btnLoad_Click(object sender, EventArgs e)

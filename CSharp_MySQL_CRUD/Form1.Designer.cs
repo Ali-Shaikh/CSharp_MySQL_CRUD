@@ -256,7 +256,7 @@
             // lblRecords
             // 
             this.lblRecords.AutoSize = true;
-            this.lblRecords.Location = new System.Drawing.Point(475, 0);
+            this.lblRecords.Location = new System.Drawing.Point(471, 0);
             this.lblRecords.Name = "lblRecords";
             this.lblRecords.Size = new System.Drawing.Size(0, 13);
             this.lblRecords.TabIndex = 3;
