@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtBoxID = new System.Windows.Forms.TextBox();
@@ -62,13 +63,16 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.course = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.picLogo = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.picLogo);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtBoxID);
             this.groupBox1.Controls.Add(this.btnLoad);
@@ -92,7 +96,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 44);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(531, 242);
+            this.groupBox1.Size = new System.Drawing.Size(710, 242);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student Database";
@@ -308,7 +312,9 @@
             this.dataGridViewStudent.AllowUserToAddRows = false;
             this.dataGridViewStudent.AllowUserToDeleteRows = false;
             this.dataGridViewStudent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewStudent.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridViewStudent.ColumnHeadersHeight = 21;
+            this.dataGridViewStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewStudent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.fname,
@@ -317,22 +323,23 @@
             this.email,
             this.mobile,
             this.course});
+            this.dataGridViewStudent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridViewStudent.Location = new System.Drawing.Point(12, 292);
             this.dataGridViewStudent.Name = "dataGridViewStudent";
             this.dataGridViewStudent.ReadOnly = true;
             this.dataGridViewStudent.RowHeadersWidth = 50;
             this.dataGridViewStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStudent.Size = new System.Drawing.Size(531, 353);
+            this.dataGridViewStudent.Size = new System.Drawing.Size(710, 353);
             this.dataGridViewStudent.TabIndex = 6;
             this.dataGridViewStudent.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudent_CellDoubleClick);
             // 
             // id
             // 
             this.id.DataPropertyName = "ID";
-            this.id.HeaderText = "ID";
+            this.id.HeaderText = "Student ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 43;
+            this.id.Width = 83;
             // 
             // fname
             // 
@@ -361,18 +368,18 @@
             // email
             // 
             this.email.DataPropertyName = "Email";
-            this.email.HeaderText = "Email";
+            this.email.HeaderText = "Email Address";
             this.email.Name = "email";
             this.email.ReadOnly = true;
-            this.email.Width = 57;
+            this.email.Width = 98;
             // 
             // mobile
             // 
             this.mobile.DataPropertyName = "Mobile";
-            this.mobile.HeaderText = "Mobile No";
+            this.mobile.HeaderText = "Mobile Number";
             this.mobile.Name = "mobile";
             this.mobile.ReadOnly = true;
-            this.mobile.Width = 80;
+            this.mobile.Width = 103;
             // 
             // course
             // 
@@ -382,11 +389,21 @@
             this.course.ReadOnly = true;
             this.course.Width = 65;
             // 
+            // picLogo
+            // 
+            this.picLogo.Image = ((System.Drawing.Image)(resources.GetObject("picLogo.Image")));
+            this.picLogo.Location = new System.Drawing.Point(504, 36);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(200, 200);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picLogo.TabIndex = 16;
+            this.picLogo.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 657);
+            this.ClientSize = new System.Drawing.Size(734, 657);
             this.Controls.Add(this.dataGridViewStudent);
             this.Controls.Add(this.lblDBStatusValue);
             this.Controls.Add(this.lblDBStatus);
@@ -398,6 +415,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,6 +455,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn mobile;
         private System.Windows.Forms.DataGridViewTextBoxColumn course;
+        private System.Windows.Forms.PictureBox picLogo;
     }
 }
 
