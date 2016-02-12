@@ -97,9 +97,10 @@ namespace CSharp_MySQL_CRUD
 
         private void reset()
         {
-            txtBoxFName.Text = txtBoxLName.Text = txtBoxEmail.Text = txtBoxMobile.Text
+            txtBoxID.Text = txtBoxFName.Text = txtBoxLName.Text = txtBoxEmail.Text = txtBoxMobile.Text
                 = txtBoxCourse.Text = string.Empty;
             comboBoxGender.SelectedIndex = 0;
+            txtBoxID.Enabled = btnDelete.Enabled = btnUpdate.Enabled = false;
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -155,7 +156,35 @@ namespace CSharp_MySQL_CRUD
                         reset();
                         LoadData();
                         //getTotalStudents();
-                        txtBoxID.Enabled = btnDelete.Enabled = btnUpdate.Enabled = false;
+                        //txtBoxID.Enabled = btnDelete.Enabled = btnUpdate.Enabled = false;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error Occurred!\n" + ex.Message, "Error Message",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void deleteData()
+        {
+            string sql = "DELETE FROM `student` WHERE ID = " + int.Parse(txtBoxID.Text.Trim());
+            using (MySqlConnection conn = new MySqlConnection(connectionManager.connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    if (cmd.ExecuteNonQuery() != 0)
+                    {
+                        MessageBox.Show("Record Deleted Successfuly.", "Information Message",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        reset();
+                        LoadData();
+                        //getTotalStudents();
+                        //txtBoxID.Enabled = btnDelete.Enabled = btnUpdate.Enabled = false;
                     }
 
                 }
@@ -194,6 +223,25 @@ namespace CSharp_MySQL_CRUD
             txtBoxCourse.Text = dataGridViewStudent.Rows[e.RowIndex].Cells["course"].Value.ToString();
             comboBoxGender.Text = dataGridViewStudent.Rows[e.RowIndex].Cells["gender"].Value.ToString();
             txtBoxID.Enabled = btnDelete.Enabled = btnUpdate.Enabled = true;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Are you sure you want to delete this record?\nOnce deleted this cannot be reversed.",
+                                     "Confirm Delete!!",
+                                     MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                // If 'Yes', do something here.
+                deleteData();
+            }
+            else
+            {
+                // If 'No', do something here.
+                reset();
+                LoadData();
+            }
+            
         }
     }
 }
