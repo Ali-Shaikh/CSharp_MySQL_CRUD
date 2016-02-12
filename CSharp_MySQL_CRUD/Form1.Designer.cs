@@ -52,7 +52,7 @@
             this.lblRecords = new System.Windows.Forms.Label();
             this.lblDBStatus = new System.Windows.Forms.Label();
             this.lblDBStatusValue = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewStudent = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,7 +62,7 @@
             this.course = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -70,7 +70,9 @@
             this.groupBox1.Controls.Add(this.btnLoad);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnUpdate);
+            this.groupBox1.Controls.Add(this.lblRecords);
             this.groupBox1.Controls.Add(this.comboBoxGender);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtBoxCourse);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtBoxMobile);
@@ -86,14 +88,14 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 44);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(598, 242);
+            this.groupBox1.Size = new System.Drawing.Size(531, 242);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Insert Record into Database";
+            this.groupBox1.Text = "Student Database";
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(418, 213);
+            this.btnLoad.Location = new System.Drawing.Point(422, 213);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
             this.btnLoad.TabIndex = 13;
@@ -104,7 +106,7 @@
             // btnDelete
             // 
             this.btnDelete.Enabled = false;
-            this.btnDelete.Location = new System.Drawing.Point(337, 213);
+            this.btnDelete.Location = new System.Drawing.Point(341, 213);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 12;
@@ -114,7 +116,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Enabled = false;
-            this.btnUpdate.Location = new System.Drawing.Point(256, 213);
+            this.btnUpdate.Location = new System.Drawing.Point(260, 213);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 11;
@@ -128,14 +130,14 @@
             "Select Gender",
             "Male",
             "Female"});
-            this.comboBoxGender.Location = new System.Drawing.Point(94, 133);
+            this.comboBoxGender.Location = new System.Drawing.Point(98, 133);
             this.comboBoxGender.Name = "comboBoxGender";
             this.comboBoxGender.Size = new System.Drawing.Size(399, 21);
             this.comboBoxGender.TabIndex = 7;
             // 
             // txtBoxCourse
             // 
-            this.txtBoxCourse.Location = new System.Drawing.Point(94, 160);
+            this.txtBoxCourse.Location = new System.Drawing.Point(98, 160);
             this.txtBoxCourse.Name = "txtBoxCourse";
             this.txtBoxCourse.Size = new System.Drawing.Size(399, 20);
             this.txtBoxCourse.TabIndex = 8;
@@ -143,7 +145,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(29, 137);
+            this.label6.Location = new System.Drawing.Point(33, 137);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 13);
             this.label6.TabIndex = 10;
@@ -151,7 +153,7 @@
             // 
             // txtBoxMobile
             // 
-            this.txtBoxMobile.Location = new System.Drawing.Point(94, 81);
+            this.txtBoxMobile.Location = new System.Drawing.Point(98, 81);
             this.txtBoxMobile.Name = "txtBoxMobile";
             this.txtBoxMobile.Size = new System.Drawing.Size(399, 20);
             this.txtBoxMobile.TabIndex = 5;
@@ -159,7 +161,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 164);
+            this.label5.Location = new System.Drawing.Point(33, 164);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 13);
             this.label5.TabIndex = 7;
@@ -168,7 +170,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 85);
+            this.label4.Location = new System.Drawing.Point(33, 85);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 6;
@@ -177,7 +179,7 @@
             // btnSave
             // 
             this.btnSave.AutoSize = true;
-            this.btnSave.Location = new System.Drawing.Point(94, 213);
+            this.btnSave.Location = new System.Drawing.Point(98, 213);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 9;
@@ -187,7 +189,7 @@
             // btnReset
             // 
             this.btnReset.AutoSize = true;
-            this.btnReset.Location = new System.Drawing.Point(175, 213);
+            this.btnReset.Location = new System.Drawing.Point(179, 213);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 10;
@@ -196,21 +198,21 @@
             // 
             // txtBoxEmail
             // 
-            this.txtBoxEmail.Location = new System.Drawing.Point(94, 107);
+            this.txtBoxEmail.Location = new System.Drawing.Point(98, 107);
             this.txtBoxEmail.Name = "txtBoxEmail";
             this.txtBoxEmail.Size = new System.Drawing.Size(399, 20);
             this.txtBoxEmail.TabIndex = 6;
             // 
             // txtBoxLName
             // 
-            this.txtBoxLName.Location = new System.Drawing.Point(94, 55);
+            this.txtBoxLName.Location = new System.Drawing.Point(98, 55);
             this.txtBoxLName.Name = "txtBoxLName";
             this.txtBoxLName.Size = new System.Drawing.Size(399, 20);
             this.txtBoxLName.TabIndex = 4;
             // 
             // txtBoxFName
             // 
-            this.txtBoxFName.Location = new System.Drawing.Point(94, 29);
+            this.txtBoxFName.Location = new System.Drawing.Point(98, 29);
             this.txtBoxFName.Name = "txtBoxFName";
             this.txtBoxFName.Size = new System.Drawing.Size(399, 20);
             this.txtBoxFName.TabIndex = 3;
@@ -218,7 +220,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 111);
+            this.label3.Location = new System.Drawing.Point(33, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 2;
@@ -227,7 +229,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 59);
+            this.label2.Location = new System.Drawing.Point(33, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 1;
@@ -236,7 +238,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 33);
+            this.label1.Location = new System.Drawing.Point(33, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 0;
@@ -245,7 +247,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(616, 44);
+            this.label7.Location = new System.Drawing.Point(388, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 13);
             this.label7.TabIndex = 2;
@@ -254,7 +256,7 @@
             // lblRecords
             // 
             this.lblRecords.AutoSize = true;
-            this.lblRecords.Location = new System.Drawing.Point(701, 44);
+            this.lblRecords.Location = new System.Drawing.Point(475, 0);
             this.lblRecords.Name = "lblRecords";
             this.lblRecords.Size = new System.Drawing.Size(0, 13);
             this.lblRecords.TabIndex = 3;
@@ -262,7 +264,7 @@
             // lblDBStatus
             // 
             this.lblDBStatus.AutoSize = true;
-            this.lblDBStatus.Location = new System.Drawing.Point(12, 9);
+            this.lblDBStatus.Location = new System.Drawing.Point(19, 9);
             this.lblDBStatus.Name = "lblDBStatus";
             this.lblDBStatus.Size = new System.Drawing.Size(89, 13);
             this.lblDBStatus.TabIndex = 4;
@@ -271,18 +273,18 @@
             // lblDBStatusValue
             // 
             this.lblDBStatusValue.AutoSize = true;
-            this.lblDBStatusValue.Location = new System.Drawing.Point(107, 9);
+            this.lblDBStatusValue.Location = new System.Drawing.Point(109, 9);
             this.lblDBStatusValue.Name = "lblDBStatusValue";
             this.lblDBStatusValue.Size = new System.Drawing.Size(0, 13);
             this.lblDBStatusValue.TabIndex = 5;
             // 
-            // dataGridView1
+            // dataGridViewStudent
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewStudent.AllowUserToAddRows = false;
+            this.dataGridViewStudent.AllowUserToDeleteRows = false;
+            this.dataGridViewStudent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewStudent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.fname,
             this.lname,
@@ -290,12 +292,13 @@
             this.email,
             this.mobilr,
             this.course});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 292);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(823, 404);
-            this.dataGridView1.TabIndex = 6;
+            this.dataGridViewStudent.Location = new System.Drawing.Point(12, 292);
+            this.dataGridViewStudent.Name = "dataGridViewStudent";
+            this.dataGridViewStudent.ReadOnly = true;
+            this.dataGridViewStudent.RowHeadersWidth = 50;
+            this.dataGridViewStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewStudent.Size = new System.Drawing.Size(531, 353);
+            this.dataGridViewStudent.TabIndex = 6;
             // 
             // id
             // 
@@ -303,6 +306,7 @@
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
+            this.id.Width = 43;
             // 
             // fname
             // 
@@ -310,6 +314,7 @@
             this.fname.HeaderText = "First Name";
             this.fname.Name = "fname";
             this.fname.ReadOnly = true;
+            this.fname.Width = 82;
             // 
             // lname
             // 
@@ -317,6 +322,7 @@
             this.lname.HeaderText = "Last Name";
             this.lname.Name = "lname";
             this.lname.ReadOnly = true;
+            this.lname.Width = 83;
             // 
             // gender
             // 
@@ -324,6 +330,7 @@
             this.gender.HeaderText = "Gender";
             this.gender.Name = "gender";
             this.gender.ReadOnly = true;
+            this.gender.Width = 67;
             // 
             // email
             // 
@@ -331,6 +338,7 @@
             this.email.HeaderText = "Email";
             this.email.Name = "email";
             this.email.ReadOnly = true;
+            this.email.Width = 57;
             // 
             // mobilr
             // 
@@ -338,6 +346,7 @@
             this.mobilr.HeaderText = "Mobile No";
             this.mobilr.Name = "mobilr";
             this.mobilr.ReadOnly = true;
+            this.mobilr.Width = 80;
             // 
             // course
             // 
@@ -345,25 +354,24 @@
             this.course.HeaderText = "Course";
             this.course.Name = "course";
             this.course.ReadOnly = true;
+            this.course.Width = 65;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(847, 708);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(555, 657);
+            this.Controls.Add(this.dataGridViewStudent);
             this.Controls.Add(this.lblDBStatusValue);
             this.Controls.Add(this.lblDBStatus);
-            this.Controls.Add(this.lblRecords);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
-            this.Text = "MySQL Insert";
+            this.Text = "MySQL - Student Database ";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -390,7 +398,7 @@
         private System.Windows.Forms.Label lblRecords;
         private System.Windows.Forms.Label lblDBStatus;
         private System.Windows.Forms.Label lblDBStatusValue;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewStudent;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;

@@ -61,8 +61,8 @@ namespace CSharp_MySQL_CRUD
                 MySqlDataAdapter _adapter = new MySqlDataAdapter("SELECT * FROM student", conn);
                 DataSet _dataset = new DataSet();
                 _adapter.Fill(_dataset, "table");
-                dataGridView1.DataSource = _dataset;
-                dataGridView1.DataMember = "table";
+                dataGridViewStudent.DataSource = _dataset;
+                dataGridViewStudent.DataMember = "table";
             }
         }
 
