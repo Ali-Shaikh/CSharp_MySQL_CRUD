@@ -22,7 +22,8 @@ namespace CSharp_MySQL_CRUD
         {
             DBConnectionStatus();
             GetTotalStudents();
-            
+            comboBoxGender.SelectedIndex = 0;
+
         }
 
         private void LoadData()
@@ -91,6 +92,18 @@ namespace CSharp_MySQL_CRUD
         private void btnLoad_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void reset()
+        {
+            txtBoxFName.Text = txtBoxLName.Text = txtBoxEmail.Text = txtBoxMobile.Text
+                = txtBoxCourse.Text = string.Empty;
+            comboBoxGender.SelectedIndex = 0;
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            reset();
         }
     }
 }
