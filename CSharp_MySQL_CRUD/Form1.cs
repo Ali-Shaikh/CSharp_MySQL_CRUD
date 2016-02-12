@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using CSharp_MySQL_CRUD.App_data;
 
 namespace CSharp_MySQL_CRUD
 {
@@ -17,16 +18,15 @@ namespace CSharp_MySQL_CRUD
         {
             InitializeComponent();
         }
-        string connectionString = "host=192.168.0.91; database=c#1; user=test1; password=test1";
         private void Form1_Load(object sender, EventArgs e)
         {
-            using (MySqlConnection con = new MySqlConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionManager.connectionString))
             {
                 try
                 {
-                    con.Open();
+                    conn.Open();
                     string query = "SELECT VERSION()";
-                    MySqlCommand cmd = new MySqlCommand(query, con);
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
                     string version = Convert.ToString(cmd.ExecuteScalar());
                     lblDBStatusValue.Text = "Connection Established! - " + "MySQL Version: " + version;
 
@@ -36,13 +36,13 @@ namespace CSharp_MySQL_CRUD
                     lblDBStatusValue.Text = "Connection Error!\n" + ex.Message;
                 }
             }
-            using (MySqlConnection con = new MySqlConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionManager.connectionString))
             {
                 try
                 {
-                    con.Open();
+                    conn.Open();
                     string query = "SELECT COUNT(*) FROM student";
-                    MySqlCommand cmd = new MySqlCommand(query, con);
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
                     string records = Convert.ToString(cmd.ExecuteScalar());
                     lblRecords.Text = records;
 
@@ -54,9 +54,16 @@ namespace CSharp_MySQL_CRUD
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void LoadData()
         {
-
+            using (MySqlConnection conn = new MySqlConnection(connectionManager.connectionString))
+            {
+                MySqlDataAdapter _adapter = new MySqlDataAdapter("SELECT * FROM student", conn);
+                DataSet _dataset = new DataSet();
+                _adapter.Fill(_dataset, "table");
+                dataGridView1.DataSource = _dataset;
+                dataGridView1.DataMember = "table";
+            }
         }
     }
 }
