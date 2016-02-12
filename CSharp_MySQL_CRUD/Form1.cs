@@ -65,5 +65,10 @@ namespace CSharp_MySQL_CRUD
                 dataGridView1.DataMember = "table";
             }
         }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
     }
 }

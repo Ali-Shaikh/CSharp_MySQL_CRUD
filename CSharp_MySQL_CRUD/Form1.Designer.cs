@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLoad = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.comboBoxGender = new System.Windows.Forms.ComboBox();
             this.txtBoxCourse = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,9 +53,13 @@
             this.lblDBStatus = new System.Windows.Forms.Label();
             this.lblDBStatusValue = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnLoad = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mobilr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.course = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -83,6 +90,36 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insert Record into Database";
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(418, 213);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(75, 23);
+            this.btnLoad.TabIndex = 13;
+            this.btnLoad.Text = "Load";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Location = new System.Drawing.Point(337, 213);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 12;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Enabled = false;
+            this.btnUpdate.Location = new System.Drawing.Point(256, 213);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 11;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
             // 
             // comboBoxGender
             // 
@@ -241,38 +278,73 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.fname,
+            this.lname,
+            this.gender,
+            this.email,
+            this.mobilr,
+            this.course});
             this.dataGridView1.Location = new System.Drawing.Point(12, 292);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(823, 404);
             this.dataGridView1.TabIndex = 6;
             // 
-            // btnUpdate
+            // id
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(256, 213);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 11;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.id.DataPropertyName = "ID";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
             // 
-            // btnDelete
+            // fname
             // 
-            this.btnDelete.Location = new System.Drawing.Point(337, 213);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 12;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.fname.DataPropertyName = "First Name";
+            this.fname.HeaderText = "First Name";
+            this.fname.Name = "fname";
+            this.fname.ReadOnly = true;
             // 
-            // btnLoad
+            // lname
             // 
-            this.btnLoad.Location = new System.Drawing.Point(418, 213);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(75, 23);
-            this.btnLoad.TabIndex = 13;
-            this.btnLoad.Text = "Load";
-            this.btnLoad.UseVisualStyleBackColor = true;
+            this.lname.DataPropertyName = "Last Name";
+            this.lname.HeaderText = "Last Name";
+            this.lname.Name = "lname";
+            this.lname.ReadOnly = true;
+            // 
+            // gender
+            // 
+            this.gender.DataPropertyName = "Gender";
+            this.gender.HeaderText = "Gender";
+            this.gender.Name = "gender";
+            this.gender.ReadOnly = true;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "Email";
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            // 
+            // mobilr
+            // 
+            this.mobilr.DataPropertyName = "Mobile";
+            this.mobilr.HeaderText = "Mobile No";
+            this.mobilr.Name = "mobilr";
+            this.mobilr.ReadOnly = true;
+            // 
+            // course
+            // 
+            this.course.DataPropertyName = "Course";
+            this.course.HeaderText = "Course";
+            this.course.Name = "course";
+            this.course.ReadOnly = true;
             // 
             // Form1
             // 
@@ -322,6 +394,13 @@
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mobilr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn course;
     }
 }
 
